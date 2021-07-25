@@ -8,7 +8,8 @@ class sudoku_solver {
 public:
 	constexpr sudoku_solver(const std::array<std::array<uint8_t, 9>, 9>& grid) noexcept : grid(grid) { }
 
-	[[nodiscard]] constexpr bool solve() noexcept {
+	[[nodiscard]] constexpr bool solve() noexcept
+	{
 		size_t y = 0, x = 0;
 		if (!get_empty_cell(y, x))
 			return true;
@@ -27,7 +28,8 @@ public:
 		return false;
 	}
 
-	[[nodiscard]] constexpr uint8_t get(const size_t y, const size_t x) const noexcept {
+	[[nodiscard]] constexpr uint8_t get(const size_t y, const size_t x) const noexcept
+	{
 		return grid[y][x];
 	}
 
@@ -81,7 +83,8 @@ private:
 	std::array<std::array<uint8_t, 9>, 9> grid;
 
 public:
-	constexpr friend std::ostream& operator<<(std::ostream& os, const sudoku_solver& sudoku) noexcept {
+	constexpr friend std::ostream& operator<<(std::ostream& os, const sudoku_solver& sudoku) noexcept
+	{
 		for (size_t y = 0; y < sudoku.grid.size(); y++)
 		{
 			if (y > 0 && y % 3 == 0)
